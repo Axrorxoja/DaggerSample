@@ -1,15 +1,13 @@
 package com.example.daggerexample.ui
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.daggerexample.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.daggerexample.domain.ActivityObject
+import com.example.daggerexample.ui.global.BaseDaggerActivity
+import javax.inject.Inject
 
-class AppActivity : AppCompatActivity() {
+class AppActivity : BaseDaggerActivity() {
+    @Inject
+    lateinit var activityObject: ActivityObject
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-    }
+    override val layoutId = R.layout.activity_main
 }

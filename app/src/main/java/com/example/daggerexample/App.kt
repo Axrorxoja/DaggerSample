@@ -1,11 +1,11 @@
 package com.example.daggerexample
 
-import android.app.Application
+import com.example.daggerexample.di.component.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
 
-class App : Application() {
+class App : DaggerApplication() {
 
-    override fun onCreate() {
-        super.onCreate()
-
-    }
+    override fun applicationInjector(): AndroidInjector<App> =
+        DaggerAppComponent.factory().create(this)
 }
