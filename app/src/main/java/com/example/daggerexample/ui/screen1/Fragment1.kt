@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.daggerexample.App
 import com.example.daggerexample.R
 import com.example.daggerexample.domain.Fragment1Object
-import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment1.*
 import javax.inject.Inject
 
@@ -24,6 +24,6 @@ class Fragment1 : Fragment(R.layout.fragment1) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        AndroidSupportInjection.inject(this)
+        (requireActivity().application as App).appComponent.inject(this)
     }
 }
